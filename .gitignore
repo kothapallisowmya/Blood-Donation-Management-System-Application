@@ -1,0 +1,24 @@
+# Dependency directories
+node_modules/
+frontend/node_modules/
+
+# Build outputs
+dist/
+frontend/dist/
+target/
+backend/target/
+
+# IDE / System configurations
+.settings/
+backend/.settings/
+.classpath
+backend/.classpath
+.project
+backend/.project
+.DS_Store
+Thumbs.db
+
+# Environmental variables
+.env
+.env.local
+.env.*.local

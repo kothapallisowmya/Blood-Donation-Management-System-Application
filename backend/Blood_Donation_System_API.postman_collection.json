@@ -1,0 +1,394 @@
+{
+	"info": {
+		"_postman_id": "8a32a677-4b71-4a33-bf4d-3db91219b22a",
+		"name": "Blood Donation Management System API (Simplified)",
+		"description": "Production-Ready REST API endpoints for user registration, login, donor onboarding, search, requests, and administration.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register Admin User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"fullName\": \"System Admin\",\n  \"email\": \"admin@gmail.com\",\n  \"password\": \"Admin@123\",\n  \"phoneNumber\": \"9999999999\",\n  \"role\": \"ADMIN\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Donor User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"fullName\": \"John Doe\",\n  \"email\": \"john@gmail.com\",\n  \"password\": \"Password@123\",\n  \"phoneNumber\": \"9876543210\",\n  \"role\": \"DONOR\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"john@gmail.com\",\n  \"password\": \"Password@123\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Donor Management",
+			"item": [
+				{
+					"name": "Register Donor Profile",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userId\": 2,\n  \"bloodGroup\": \"O_POSITIVE\",\n  \"age\": 25,\n  \"gender\": \"Male\",\n  \"weight\": 75.5,\n  \"city\": \"New York\",\n  \"state\": \"NY\",\n  \"lastDonationDate\": \"2026-03-01\",\n  \"availableForDonation\": true\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/donors",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"donors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Donors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/donors",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"donors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Donor By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/donors/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"donors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Donor Profile",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userId\": 2,\n  \"bloodGroup\": \"O_POSITIVE\",\n  \"age\": 26,\n  \"gender\": \"Male\",\n  \"weight\": 78.0,\n  \"city\": \"New York\",\n  \"state\": \"NY\",\n  \"lastDonationDate\": \"2026-03-01\",\n  \"availableForDonation\": false\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/donors/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"donors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search by Blood Group",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/donors/search/blood-group/O_POSITIVE",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"donors",
+								"search",
+								"blood-group",
+								"O_POSITIVE"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search by City",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/donors/search/city/New York",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"donors",
+								"search",
+								"city",
+								"New York"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Available Donors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/donors/search/available",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"donors",
+								"search",
+								"available"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Donor Profile",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/donors/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"donors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Blood Requests",
+			"item": [
+				{
+					"name": "Create Blood Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"patientName\": \"Alice Smith\",\n  \"bloodGroup\": \"A_NEGATIVE\",\n  \"unitsRequired\": 3,\n  \"hospitalName\": \"City Memorial Hospital\",\n  \"city\": \"Boston\",\n  \"requiredDate\": \"2026-06-25\",\n  \"contactNumber\": \"8888888888\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/blood-requests",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"blood-requests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Requests",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/blood-requests",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"blood-requests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Request Status",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"APPROVED\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/blood-requests/1/status",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"blood-requests",
+								"1",
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin Dashboard",
+			"item": [
+				{
+					"name": "Get Admin Dashboard Stats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/admin/dashboard",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"dashboard"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
