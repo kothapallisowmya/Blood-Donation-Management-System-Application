@@ -1,4 +1,4 @@
-const BASE_URL = '/api';
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 /**
  * Standard fetch helper that handles JSON content-type and parses responses
